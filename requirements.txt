@@ -1,0 +1,12 @@
+langchain==0.3.26
+langchain-community==0.3.27
+langchain-core==0.3.72
+langchain-pymupdf4llm==0.4.1
+langgraph==0.5.4
+langgraph-checkpoint==2.1.1
+PyMuPDF==1.26.3
+pymupdf4llm==0.0.27
+python-dotenv==1.1.1
+chromadb==1.0.15
+flask==3.1.1
+flask_cors==6.0.1

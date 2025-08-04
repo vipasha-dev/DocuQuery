@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuQuery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-main">
+                <span class="header-icon">📄</span>
+                <span class="header-title">DocuQuery</span>
+            </div>
+            <p class="header-subtitle">Upload your document and chat with it!</p>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>Upload Your Document</h3>
+                    <p>Drag & drop your PDF file here or click to browse</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <button class="browse-btn" id="browseBtn">
+                        Browse Files
+                    </button>
+                </div>
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="uploadStatus">Uploading and extracting text...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Row: PDF Preview + Chat -->
+        <div class="main-content-row" id="mainContentRow" style="display: none;">
+            <!-- PDF Preview Panel -->
+            <div class="pdf-preview-panel" id="pdfPreviewPanel" style="flex: 1.2 1 0; min-width: 0; max-width: 60%;">
+                <div class="pdf-preview-label">PDF Preview</div>
+                <div id="pdfViewerContainer" style="position: relative; width: 100%; height: 600px;">
+                    <div id="pdfViewer" style="width: 100%; height: 100%;"></div>
+                </div>
+            </div>
+            <!-- Chat Section -->
+            <div class="chat-section" id="chatSection" style="flex: 1.2 1 0; min-width: 0; max-width: 60%;">
+                <div class="document-info" id="documentInfo">
+                    <span class="doc-icon">📄</span>
+                    <span id="documentName">Document loaded</span>
+                    <button class="new-doc-btn" onclick="resetApp()">Upload New Document</button>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="welcome-message">
+                            <div class="bot-message">
+                                <div class="avatar bot-avatar">🤖</div>
+                                <div class="message-content">
+                                    <p>Hello! I've processed your document. Ask me anything about it!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Ask a question about your document..." 
+                                   onkeypress="handleKeyPress(event)">
+                            <button id="sendBtn">
+                                <span id="sendIcon">➤</span>
+                                <span id="loadingIcon" style="display: none;">⏳</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div class="modal" id="errorModal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>⚠️ Error</h3>
+                <p id="errorMessage"></p>
+                <button onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        © 2024 DocuQuery. All rights reserved.
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
