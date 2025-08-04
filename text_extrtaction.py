@@ -104,7 +104,7 @@ class DocumentProcessor:
             return ""
 
 if __name__ == "__main__":
-    file_path = r"C:\Users\sspl1431\Downloads\f0457fd050a9dc4d5cfaa750ed1ee39d84c8.pdf"
+    file_path = r"path/to/pdf/file"
     processor = DocumentProcessor(file_path)
 
     extracted_text = processor.process_file(use_table_aware=True)
